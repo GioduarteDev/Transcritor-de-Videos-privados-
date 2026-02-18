@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Transcritor Cod3r Pro",
+  "description": "Ferramenta de acessibilidade para transcrição de aulas com foco em TDAH e Dislexia.",
+  "version": "1.1",
+  "action": {},
+  "background": {
+    "service_worker": "popup.js"
+  },
+  "permissions": ["tabs"],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  
+}
+  
+}

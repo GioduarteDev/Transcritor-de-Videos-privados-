@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Transcrição Pro | Midnight Edition</title>
+    <style>
+        :root {
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --accent: #64ffda;
+            --text-main: #e2e8f0;
+            --text-sub: #94a3b8;
+        }
+
+        body { 
+            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+            color: var(--text-main);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        h1 {
+    font-size: 3rem;
+    margin-bottom: 5px;
+    font-weight: 800;
+    text-align: center;
+    display: block; /* Garante que ele ocupe o espaço dele */
+    
+    /* O degradê que vai dar cor às letras */
+    background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
+    
+    /* A mágica para o degradê ficar dentro das letras */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Um brilho sutil para dar o tchan */
+    text-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+}
+
+        .sub {
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        #cronometro {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 25px;
+            border-radius: 50px;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .controles {
+            background: var(--bg-card);
+            padding: 20px 40px;
+            border-radius: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        button {
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        button:hover { transform: translateY(-3px); filter: brightness(1.2); }
+
+        #btn-start { background: #3b82f6; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
+        #btn-copy { background: #10b981; }
+        #btn-save { background: #6366f1; }
+        #btn-clear { background: #ef4444; }
+
+        #status-som {
+            width: 14px; height: 14px; border-radius: 50%;
+            background: #334155; display: inline-block;
+            margin-right: 10px;
+        }
+        .ativo { background: var(--accent) !important; box-shadow: 0 0 15px var(--accent); }
+
+        #area-texto {
+            width: 90%;
+            max-width: 850px;
+            margin-top: 40px;
+            background: #020617;
+            border-radius: 24px;
+            padding: 60px;
+            font-size: 1.4rem;
+            line-height: 2.2;
+            color: #f8f8f2;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            border-left: 10px solid #6366f1;
+            text-align: justify;
+            outline: none;
+            min-height: 500px;
+        }
+
+        /* Cores Monokai para facilitar a leitura da Engenheira */
+        .keyword { color: #f92672; font-weight: bold; }
+        .function { color: #66d9ef; font-weight: bold; }
+        .termo-tecnico { color: #a6e22e; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Transcrição Pro</h1>
+    <p class="sub">Engenharia de Software Edition</p>
+    
+    <div id="cronometro">TEMPO DE AULA: 00:00:00</div>
+
+    <div class="controles">
+        <div><span id="status-som"></span></div>
+        <button id="btn-start">Iniciar Transcrição</button>
+        <button id="btn-copy">Copiar Texto</button>
+        <button id="btn-save">Baixar .TXT</button>
+        <button id="btn-clear">Limpar Tudo</button>
+    </div>
+
+    <div id="area-texto" contenteditable="true">O texto da aula aparecerá aqui...</div>
+
+    <script src="transcrever.js"></script>
+</body>
+</html>
